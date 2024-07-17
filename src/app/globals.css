@@ -1,33 +1,139 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+html {
+  font-size: 62.5%;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.container {
+  position: relative;
+  min-height: 100vh;
+  background-color: #020015;
+
+  /* optional */
+  font-family: 'Open Sans', sans-serif;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  max-width: 440px;
+  max-height: 400px;
+  object-fit: cover;
+  mask-image: linear-gradient(to bottom,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 1),
+      rgba(0, 0, 0, 1),
+      rgba(0, 0, 0, 0));
+  -webkit-mask-image: linear-gradient(to bottom,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 1),
+      rgba(0, 0, 0, 1),
+      rgba(0, 0, 0, 0));
+  z-index: 1;
+  transform: translate(-50%, -50%);
+}
+
+.cover-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(2, 0, 21, 0.4);
+}
+
+.general-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-width: 440px;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 40px;
+  padding-bottom: 80px;
+  text-align: center;
+  z-index: 2;
+}
+
+.content-data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.content-data__span {
+  margin-bottom: 10px;
+  font-size: 1.7rem;
+  font-weight: 200;
+  color: #ebe9e9;
+}
+
+.content-data__h1 {
+  font-size: 2rem;
+  font-weight: 500;
+  color: #fff;
+}
+
+.content-data__h2 {
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  font-weight: 300;
+  color: #ebe9e9;
+}
+
+.content-data__button {
+  min-width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+  border: none;
+  outline: none;
+  border-radius: 50%;
+  background-color: #fff;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.content-data__button:hover {
+  background-color: #cdcaca;
+}
+
+.social-media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.social-media__icon {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  fill: #fff;
+  transition: all 0.3s ease;
+}
+
+.social-media__icon:hover {
+  fill: #7e7c7c;
 }
